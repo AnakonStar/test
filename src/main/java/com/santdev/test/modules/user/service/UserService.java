@@ -31,6 +31,15 @@ public class UserService {
         return userRepository.findAll(spec);
     }
 
+    public UserEntity findById(Long id) {
+        return userRepository.findById(id)
+                .orElseThrow(
+                        () -> new RuntimeException(
+                                "User not found"
+                        )
+                );
+    }
+
     public UserEntity create(
             CreateUserDto data) {
 

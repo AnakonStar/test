@@ -19,11 +19,17 @@ public class AuthController {
     @Public()
     @PostMapping("/login")
     public AuthResponseDto login(@RequestBody AuthRequestDto request) {
-        String token = authService.login(
+        return authService.login(
             request.getEmail(),
             request.getPassword()
         );
+    }
 
-        return new AuthResponseDto(token);
+    @Public()
+    @PostMapping("/refresh")
+    public AuthResponseDto refresh(@RequestBody RefreshTokenRequestDto request) {
+        return authService.refresh(
+            request.getRefreshToken()
+        );
     }
 }

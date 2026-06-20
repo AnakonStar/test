@@ -8,4 +8,7 @@ public class SecurityConstants {
     public static final Long EXPIRATION =
         86400000L;
 
+    public static final Long REFRESH_EXPIRATION =
+        604800000L;
+
 }
